@@ -2,8 +2,13 @@ package FunctionLayer;
 
 public class Order {
 
-    private static int carportWidth;
-    private static int carportLength;
-    private static int carportHeight;
+    private int carportWidth, carportLength, carportHeight;
+    private int orderID;
+
+    Order (int cWidth, int cLength, int cHeight) {
+        this.carportWidth = cWidth;
+        this.carportLength = cLength;
+        this.carportHeight = cHeight;
+    }
 
 }
