@@ -11,9 +11,9 @@ import java.sql.SQLException;
  */
 public class Connector {
 
-    private static String URL;
-    private static String USERNAME;
-    private static String PASSWORD;
+    private static String URL = "jdbc:mysql://64.225.69.246:3306/FogProjektEksamenS2";
+    private static String USERNAME = "cupecake";
+    private static String PASSWORD = "cupecake";
 
     private static Connection singleton;
 
@@ -23,7 +23,7 @@ public class Connector {
 
     public static Connection connection() throws ClassNotFoundException, SQLException {
         if ((singleton == null) || singleton.isClosed()) {
-            setDBCredentials();
+            //setDBCredentials();
             Class.forName( "com.mysql.cj.jdbc.Driver" );
             singleton = DriverManager.getConnection( URL, USERNAME, PASSWORD );
         }
