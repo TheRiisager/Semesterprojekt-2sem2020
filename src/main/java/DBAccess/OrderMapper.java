@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class OrderMapper {
 
-    public static void getAllOrders(){
+    public static ArrayList<Order> getAllOrders(){
         ArrayList<Order> orders = new ArrayList<Order>();
 
         try{
@@ -28,6 +28,7 @@ public class OrderMapper {
                 orders.add(new Order(orderID, width, length, height));
 
             }
+
         }catch(SQLException e){
             System.out.println(e);
             System.out.println("SQL exception in OrderMapper.getAllOrders()");
@@ -37,6 +38,6 @@ public class OrderMapper {
             System.out.println("ClassNotFound Exception in OrderMapper.getAllOrders()");
         }
 
-
+        return orders;
     }
 }
