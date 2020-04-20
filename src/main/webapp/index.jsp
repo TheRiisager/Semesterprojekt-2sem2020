@@ -15,7 +15,7 @@
     </head>
     <body>
         <h1>Welcome to Sem 2</h1>
-        
+
         <table>
             <tr><td>Login</td>
                 <td>
@@ -32,26 +32,12 @@
                 </td>
                 <td>Or Register</td>
                 <td>
-                    <form name="register" action="FrontController" method="POST">
-                        <input type="hidden" name="target" value="register">
-                        Email:<br>
-                        <input type="text" name="email" value="someone@nowhere.com">
-                        <br>
-                        Password:<br>
-                        <input type="password" name="password1" value="sesam">
-                        <br>
-                        Retype Password:<br>
-                        <input type="password" name="password2" value="sesam">
-                        <br>
-                        <input type="submit" value="Submit">
+                    <form name="enter" action="FrontController" method="POST">
+                        <input type="hidden" name="target" value="loadOrders">
+                        <input type="submit" value="Employees">
                     </form>
                 </td>
             </tr>
         </table>
-
-        <c:if test = "${requestScope.error!= null}" >
-           <h2>Error ! </h2>
-            ${requestScope.error}
-        </c:if>
     </body>
 </html>

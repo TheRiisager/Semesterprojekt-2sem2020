@@ -12,4 +12,19 @@ public class Order {
         this.carportHeight = cHeight;
     }
 
+    public int getCarportWidth() {
+        return carportWidth;
+    }
+
+    public int getCarportLength() {
+        return carportLength;
+    }
+
+    public int getCarportHeight() {
+        return carportHeight;
+    }
+
+    public int getOrderID() {
+        return orderID;
+    }
 }

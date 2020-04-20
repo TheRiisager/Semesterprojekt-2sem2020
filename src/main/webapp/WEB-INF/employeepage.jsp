@@ -12,7 +12,19 @@
         <title>Employee home page</title>
     </head>
     <body>
-        
+        <table style="width: 75%;">
+            <tr style="font-weight: bold;">
+                <td>ID</td>
+                <td>Dimensioner</td>
+            </tr>
+            <c:forEach var="order" items="${orderList}">
+                <tr>
+                    <td>${order.getOrderID()}</td>
+                    <td>${order.getCarportLength()}x${order.getCarportWidth()}x${order.getCarportHeight()}</td>
+                </tr>
+            </c:forEach>
+        </table>
+
 
         <h1>Hello ${sessionScope.email} </h1>
 
