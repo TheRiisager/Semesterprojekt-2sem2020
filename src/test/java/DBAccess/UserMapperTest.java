@@ -19,10 +19,10 @@ public class  UserMapperTest {
 //    (4,'someone@nowhere.com','sesam','customer');
 
     private static Connection testConnection;
-    private static String USER = "testinguser";
-    private static String USERPW = "try1try2tryAgain";
-    private static String DBNAME = "useradminTest";
-    private static String HOST = "46.101.253.149";
+    private static String USER = "cupcake";
+    private static String USERPW = "cupcake";
+    private static String DBNAME = "FogProjektEksamenS2Test";
+    private static String HOST = "64.225.69.246";
 
     @Before
     public void setUp() {
@@ -36,13 +36,13 @@ public class  UserMapperTest {
                 // Make mappers use test 
                 Connector.setConnection( testConnection );
             }
-            // reset test database
+            /* reset test database
             try ( Statement stmt = testConnection.createStatement() ) {
                 stmt.execute( "drop table if exists Users" );
                 stmt.execute( "create table Users like UsersTest" );
                 stmt.execute( "insert into Users select * from UsersTest" );
             }
-
+            */
         } catch ( ClassNotFoundException | SQLException ex ) {
             testConnection = null;
             System.out.println( "Could not open connection to database: " + ex.getMessage() );
@@ -66,6 +66,7 @@ public class  UserMapperTest {
     public void testLogin02() throws LoginSampleException {
         // We should get an exception if we use the wrong password
         User user = UserMapper.login( "jens@somewhere.com", "larsen" );
+        assertTrue( user == null );
     }
 
     @Test
@@ -79,9 +80,12 @@ public class  UserMapperTest {
     public void testCreateUser01() throws LoginSampleException {
         // Can we create a new user - Notice, if login fails, this will fail
         // but so would login01, so this is OK
-        User original = new User( "king@kong.com", "uhahvorhemmeligt", "konge" );
+        User original = new User( "kingkong", "88888888", "king@kong.com", "Verd", "uhahvorhemmeligt", "konge" );
         UserMapper.createUser( original );
         User retrieved = UserMapper.login( "king@kong.com", "uhahvorhemmeligt" );
+        assertEquals( "kingkonge", retrieved.getName() );
+        assertEquals( "88888888", retrieved.getPhoneNumber() );
+        assertEquals( "Verd", retrieved.getAddress() );
         assertEquals( "konge", retrieved.getRole() );
     }
 }
