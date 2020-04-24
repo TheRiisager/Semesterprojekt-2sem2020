@@ -1,5 +1,6 @@
 package FunctionLayer;
 
+import DBAccess.MaterialMapper;
 import DBAccess.OrderMapper;
 import DBAccess.UserMapper;
 
@@ -32,9 +33,7 @@ public class LogicFacade {
         order.setUserID(userID);
         order.setOrderID(id);
         return order;
-    };
-
-
+    }
 
     public static Order getOrder( int orderID ) {
         return OrderMapper.getOrder( orderID );
@@ -42,6 +41,10 @@ public class LogicFacade {
 
     public static void updateOrder( int orderID, int length, int width, int height ){
         OrderMapper.updateOrder( orderID, length, width, height );
+    }
+
+    public static ArrayList<Material> loadMaterials(){
+        return MaterialMapper.loadMaterials();
     }
 
 }
