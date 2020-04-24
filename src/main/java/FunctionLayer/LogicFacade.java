@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  * The purpose of LogicFacade is to...
- * @author kasper
+ * @author
  */
 public class LogicFacade {
 
@@ -24,5 +24,16 @@ public class LogicFacade {
     public static ArrayList<Order> getAllOrders(){
        return OrderMapper.getAllOrders();
     }
+
+    public static Order createOrder(User user, int width, int length, int height){
+        Order order = new Order(width, length, length);
+        int userID = user.getId();
+        int id = OrderMapper.createOrderToDB(order, userID);
+        order.setUserID(userID);
+        order.setOrderID(id);
+        return order;
+    };
+
+
 
 }

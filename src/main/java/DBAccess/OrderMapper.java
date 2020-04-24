@@ -40,4 +40,36 @@ public class OrderMapper {
 
         return orders;
     }
+
+
+    public static int createOrderToDB(Order order, int userID){
+
+        try{
+            Connection con = Connector.connection();
+            String SQL = "INSERT INTO Orders (Height, Length, Width, userID)"
+                    + "VALUES    (?, ?, ?, ?);";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, order.getCarportHeight());
+            ps.setInt(2, order.getCarportLength());
+            ps.setInt(3, order.getCarportWidth());
+            ps.setInt( 4, userID );
+            ps.executeUpdate();
+
+            ResultSet ids = ps.getGeneratedKeys();
+            ids.next();
+            int id = ids.getInt( 1 );
+            order.setOrderID(id);
+
+            return id;
+        }catch(SQLException e){
+            System.out.println(e);
+            System.out.println("SQL exception in OrderMapper.createOrderToDB()");
+            return -1;
+        }catch(ClassNotFoundException a) {
+            System.out.println(a);
+            System.out.println("ClassNotFound Exception in OrderMapper.createOrderToDB()");
+            return -1;
+        }
+    }
+
 }
