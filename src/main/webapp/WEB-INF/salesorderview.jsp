@@ -12,7 +12,21 @@
 </head>
 <body>
     <p>
-        ${sessionScope.oid}
+       ID: ${sessionScope.oid}
     </p>
+
+    <form>
+        <input type="hidden" name="target" value="UpdateOrder">
+        <p>Lændge:</p>
+        <input type="text" name="length" value="${sessionScope.length}">
+        <br>
+        <p>Bredde:</p>
+        <input type="text" name="width" value="${sessionScope.width}">
+        <br>
+        <p>Højde:</p>
+        <input type="text" name="height" value="${sessionScope.height}">
+        <br>
+        <input type="submit" value="Opdater værdier">
+    </form>
 </body>
 </html>

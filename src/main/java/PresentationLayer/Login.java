@@ -2,10 +2,12 @@ package PresentationLayer;
 
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.Order;
 import FunctionLayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 /**
  The purpose of Login is to...
@@ -29,6 +31,11 @@ public class Login extends Command {
         session.setAttribute("name", user.getName() );
         session.setAttribute("phonenumber", user.getPhoneNumber());
         session.setAttribute("address", user.getAddress());
+
+        if (user.getRole().equals("employee")) {
+            ArrayList<Order> orderList = LogicFacade.getAllOrders();
+            session.setAttribute("orderList", orderList);
+        }
 
         return user.getRole() + "page";
     }

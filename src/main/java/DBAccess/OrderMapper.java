@@ -20,7 +20,7 @@ public class OrderMapper {
             ResultSet rs = ps.executeQuery();
 
             while(rs.next()){
-                int orderID = rs.getInt("orderID"); ;
+                int orderID = rs.getInt("orderID");
                 int height = rs.getInt("Height");
                 int length = rs.getInt("Length");
                 int width = rs.getInt("Width");
@@ -39,6 +39,56 @@ public class OrderMapper {
         }
 
         return orders;
+    }
+
+    public static Order getOrder ( int orderID ) {
+        Order order = null;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM Orders WHERE orderID = ?;";
+            PreparedStatement ps = con.prepareStatement( SQL );
+            ps.setInt( 1, orderID );
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next() ) {
+                int height = rs.getInt("Height");
+                int length = rs.getInt("Length");
+                int width = rs.getInt("Width");
+
+                order = new Order(orderID, width, length, height);
+            }
+
+        }catch ( SQLException e ){
+            System.out.println( e );
+            System.out.println( "SQL exception in OrderMapper.getOrder()" );
+
+        }catch (ClassNotFoundException a){
+            System.out.println( a );
+            System.out.println( "ClassNotFound Exception in OrderMapper.getOrder()" );
+        }
+
+
+        return order;
+    }
+
+    public static void updateOrder ( int orderID, int length, int width, int height ) {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE Orders SET Length=?, Width=?, height=? WHERE orderID = ?;";
+            PreparedStatement ps = con.prepareStatement( SQL );
+            ps.setInt( 1, length );
+            ps.setInt( 2, width );
+            ps.setInt( 3, height );
+            ps.setInt( 4, orderID );
+            ps.executeUpdate();
+        }catch ( SQLException e ){
+            System.out.println( e );
+            System.out.println( "SQL exception in OrderMapper.getOrder()" );
+
+        }catch (ClassNotFoundException a){
+            System.out.println( a );
+            System.out.println( "ClassNotFound Exception in OrderMapper.getOrder()" );
+        }
     }
 
 

@@ -8,18 +8,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class showOrder extends Command {
+public class UpdateOrder extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
-        String oidString = request.getParameter("oid");
+        System.out.println("update order initiated");
 
-        int oid = Integer.parseInt( oidString );
+        int length = Integer.parseInt( request.getParameter("length" ) );
 
-        Order order = LogicFacade.getOrder( oid );
+        int width = Integer.parseInt( request.getParameter("width" ) );
+
+        int height = Integer.parseInt( request.getParameter("height" ) );
+
+        System.out.println("parsing dimensions complete");
 
         HttpSession session = request.getSession();
 
+        String oidString = ( String ) session.getAttribute( "oid" );
+
+        System.out.println(oidString);
+
+        int orderID = Integer.parseInt( oidString );
+
+        LogicFacade.updateOrder( orderID, length, width, height );
+
+        Order order = LogicFacade.getOrder( orderID );
         session.setAttribute( "oid" , oidString );
         session.setAttribute("width" , order.getCarportWidth() );
         session.setAttribute( "length" , order.getCarportLength() );

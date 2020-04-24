@@ -16,6 +16,15 @@
 
         <h1>Hello ${sessionScope.email} </h1>
 
+        <form>
+            <input type="hidden" name="target" value="DesignPage">
+            <input type="submit" value="Designside">
+        </form>
+        <form>
+            <input type="hidden" name="target" value="AccountPage">
+            <input type="submit" value="kontoside">
+        </form>
+
 
 
 
