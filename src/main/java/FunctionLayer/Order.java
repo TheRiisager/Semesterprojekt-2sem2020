@@ -1,21 +1,36 @@
 package FunctionLayer;
 
+import javafx.util.Pair;
+
+import java.util.ArrayList;
+
+
 public class Order {
 
-    private int carportWidth, carportLength, carportHeight;
+    final static int MODULESIZE = 30;
+
+    private ArrayList<Pair> componentList;
+
+
+    private int carportWidth, carportLength;
     private int orderID;
     private int userID;
 
-    public Order (int orderID, int cWidth, int cLength, int cHeight) {
+    public Order (int orderID, int cWidth, int cLength) {
+        checkData(cWidth);
+        checkData(cLength);
+
+
         this.orderID = orderID;
         this.carportWidth = cWidth;
         this.carportLength = cLength;
-        this.carportHeight = cHeight;
     }
-    public Order (int cWidth, int cLength, int cHeight){
+    public Order (int cWidth, int cLength){
+        checkData(cWidth);
+        checkData(cLength);
+
         this.carportWidth = cWidth;
         this.carportLength = cLength;
-        this.carportHeight = cHeight;
     }
 
     public int getCarportWidth() {
@@ -24,10 +39,6 @@ public class Order {
 
     public int getCarportLength() {
         return carportLength;
-    }
-
-    public int getCarportHeight() {
-        return carportHeight;
     }
 
     public int getOrderID() {
@@ -44,5 +55,15 @@ public class Order {
 
     public void setOrderID(int orderID) { this.orderID = orderID; }
 
+    public void setComponentList( ArrayList<Pair> componentList ){
+        this.componentList = componentList;
+    }
+
+    private void checkData(int value){
+        if(value % MODULESIZE != 0){
+            System.out.println("input not divisible by module size!");
+            throw new IllegalArgumentException();
+        }
+    }
 
 }

@@ -40,7 +40,7 @@ public class LogicFacade {
     }
 
     public static void updateOrder( int orderID, int length, int width, int height ){
-        OrderMapper.updateOrder( orderID, length, width, height );
+        OrderMapper.updateOrder( orderID, length, width );
     }
 
     public static ArrayList<Material> loadMaterials(){

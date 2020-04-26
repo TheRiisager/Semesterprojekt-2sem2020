@@ -21,11 +21,10 @@ public class OrderMapper {
 
             while(rs.next()){
                 int orderID = rs.getInt("orderID");
-                int height = rs.getInt("Height");
                 int length = rs.getInt("Length");
                 int width = rs.getInt("Width");
 
-                orders.add(new Order(orderID, width, length, height));
+                orders.add( new Order( orderID, width, length ) );
 
             }
 
@@ -51,11 +50,10 @@ public class OrderMapper {
             ResultSet rs = ps.executeQuery();
 
             if(rs.next() ) {
-                int height = rs.getInt("Height");
                 int length = rs.getInt("Length");
                 int width = rs.getInt("Width");
 
-                order = new Order(orderID, width, length, height);
+                order = new Order(orderID, width, length);
             }
 
         }catch ( SQLException e ){
@@ -71,15 +69,15 @@ public class OrderMapper {
         return order;
     }
 
-    public static void updateOrder ( int orderID, int length, int width, int height ) {
+    public static void updateOrder ( int orderID, int length, int width ) {
         try {
             Connection con = Connector.connection();
-            String SQL = "UPDATE Orders SET Length=?, Width=?, height=? WHERE orderID = ?;";
+            String SQL = "UPDATE Orders SET Length=?, Width=? WHERE orderID = ?;";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setInt( 1, length );
             ps.setInt( 2, width );
-            ps.setInt( 3, height );
-            ps.setInt( 4, orderID );
+            ps.setInt( 3, orderID );
+
             ps.executeUpdate();
         }catch ( SQLException e ){
             System.out.println( e );
@@ -96,13 +94,12 @@ public class OrderMapper {
 
         try{
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO Orders (Height, Length, Width, userID)"
-                    + "VALUES    (?, ?, ?, ?);";
+            String SQL = "INSERT INTO Orders (Length, Width, userID)"
+                    + "VALUES    (?, ?, ?);";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, order.getCarportHeight());
-            ps.setInt(2, order.getCarportLength());
-            ps.setInt(3, order.getCarportWidth());
-            ps.setInt( 4, userID );
+            ps.setInt(1, order.getCarportLength());
+            ps.setInt(2, order.getCarportWidth());
+            ps.setInt( 3, userID );
             ps.executeUpdate();
 
             ResultSet ids = ps.getGeneratedKeys();

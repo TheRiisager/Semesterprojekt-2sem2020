@@ -33,6 +33,6 @@ public class Material {
 
     @Override
     public String toString(){
-        return name + " (" + length + "x" + width + "x" + height + ")";
+        return name + " (" + width + "x" + height + ")";
     }
 }
