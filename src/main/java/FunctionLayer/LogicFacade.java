@@ -26,13 +26,9 @@ public class LogicFacade {
        return OrderMapper.getAllOrders();
     }
 
-    //TODO clean up method, so that it only takes a userID and an Order, and returns an Order.
-    public static Order createOrder(User user, int width, int length){
-        Order order = new Order(width, length, length);
-        int userID = user.getId();
-        int id = OrderMapper.createOrderToDB(order, userID); // set the orderID in the OrderMapper method instead, and return the complete order object.
-        order.setUserID(userID); //set this when first instantiating the object (before calling this method)
-        order.setOrderID(id);
+
+    public static Order createOrder(Order order){
+        order = OrderMapper.createOrderToDB(order);
         return order;
     }
 

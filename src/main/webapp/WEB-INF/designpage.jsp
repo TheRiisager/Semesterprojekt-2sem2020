@@ -27,6 +27,18 @@
 
 
 </form>
+<br>
+<form name="savedesign" action="FrontController" method="POST">
+    <input type="hidden" name="target" value="savedesign">
+    <h2> Insert length here</h2>
+    <input type="number" name= "length" value = ""><br>
+    <h2> insert width here</h2>
+    <input type="number" name="width" value="" ><br>
+    <h2> The volume of your carport is</h2>
+    <input type="submit" value="Gem design">
+
+
+</form>
 </body>
 
 </html>

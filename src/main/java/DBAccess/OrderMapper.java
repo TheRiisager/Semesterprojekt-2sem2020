@@ -90,7 +90,7 @@ public class OrderMapper {
     }
 
 
-    public static int createOrderToDB(Order order, int userID){
+    public static Order createOrderToDB(Order order){
 
         try{
             Connection con = Connector.connection();
@@ -99,7 +99,7 @@ public class OrderMapper {
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, order.getCarportLength());
             ps.setInt(2, order.getCarportWidth());
-            ps.setInt( 3, userID );
+            ps.setInt( 3, order.getUserID() );
             ps.executeUpdate();
 
             ResultSet ids = ps.getGeneratedKeys();
@@ -107,15 +107,15 @@ public class OrderMapper {
             int id = ids.getInt( 1 );
             order.setOrderID(id);
 
-            return id;
+            return order;
         }catch(SQLException e){
             System.out.println(e);
             System.out.println("SQL exception in OrderMapper.createOrderToDB()");
-            return -1;
+            return null;
         }catch(ClassNotFoundException a) {
             System.out.println(a);
             System.out.println("ClassNotFound Exception in OrderMapper.createOrderToDB()");
-            return -1;
+            return null;
         }
     }
 
