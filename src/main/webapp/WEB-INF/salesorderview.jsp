@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: frede
@@ -15,8 +16,6 @@
        ID: ${sessionScope.oid}
     </p>
 
-    
-
     <form>
         <input type="hidden" name="target" value="UpdateOrder">
         <p>Lændge:</p>
@@ -25,10 +24,24 @@
         <p>Bredde:</p>
         <input type="text" name="width" value="${sessionScope.width}">
         <br>
-        <p>Højde:</p>
-        <input type="text" name="height" value="${sessionScope.height}">
-        <br>
         <input type="submit" value="Opdater værdier">
     </form>
+
+    <table class="table table-hover" style="width: 75%;">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Dimensioner</th>
+        </tr>
+        </thead>
+
+
+    <c:forEach var="pair" items="${componentList}">
+        <tr>
+            <td>${pair.getKey.getKey.}</td>
+        </tr>
+    </c:forEach>
+    </table>
+
 </body>
 </html>

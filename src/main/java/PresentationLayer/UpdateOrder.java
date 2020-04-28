@@ -36,7 +36,6 @@ public class UpdateOrder extends Command {
         session.setAttribute( "oid" , oidString );
         session.setAttribute("width" , order.getCarportWidth() );
         session.setAttribute( "length" , order.getCarportLength() );
-        session.setAttribute( "height" , order.getCarportHeight() );
 
         return "salesorderview";
     }

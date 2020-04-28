@@ -24,6 +24,7 @@ public class Order {
         this.orderID = orderID;
         this.carportWidth = cWidth;
         this.carportLength = cLength;
+        setComponentList();
     }
     public Order (int cWidth, int cLength){
         checkData(cWidth);
@@ -31,6 +32,7 @@ public class Order {
 
         this.carportWidth = cWidth;
         this.carportLength = cLength;
+        setComponentList();
     }
 
     public int getCarportWidth() {
@@ -55,8 +57,12 @@ public class Order {
 
     public void setOrderID(int orderID) { this.orderID = orderID; }
 
-    public void setComponentList( ArrayList<Pair> componentList ){
-        this.componentList = componentList;
+    public void setComponentList(){
+        this.componentList = ListCreator.createList(this);
+    }
+
+    public ArrayList<Pair> getComponentList() {
+        return componentList;
     }
 
     private void checkData(int value){
@@ -65,5 +71,7 @@ public class Order {
             throw new IllegalArgumentException();
         }
     }
+
+
 
 }

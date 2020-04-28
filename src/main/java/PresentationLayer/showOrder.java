@@ -21,9 +21,9 @@ public class showOrder extends Command {
         HttpSession session = request.getSession();
 
         session.setAttribute( "oid" , oidString );
-        session.setAttribute("width" , order.getCarportWidth() );
+        session.setAttribute( "width" , order.getCarportWidth() );
         session.setAttribute( "length" , order.getCarportLength() );
-        session.setAttribute( "height" , order.getCarportHeight() );
+        session.setAttribute( "componentList", order.getComponentList() );
 
         return "salesorderview";
     }

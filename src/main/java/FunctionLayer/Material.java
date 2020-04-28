@@ -31,6 +31,10 @@ public class Material {
         return type;
     }
 
+    public int getLength() {
+        return length;
+    }
+
     @Override
     public String toString(){
         return name + " (" + width + "x" + height + ")";
