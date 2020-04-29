@@ -35,6 +35,14 @@ public class Material {
         return length;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public static void InitMaterials(){
+        materialList = LogicFacade.loadMaterials();
+    }
+
     @Override
     public String toString(){
         return name + " (" + width + "x" + height + ")";

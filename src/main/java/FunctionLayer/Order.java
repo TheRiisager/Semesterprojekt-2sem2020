@@ -1,7 +1,5 @@
 package FunctionLayer;
 
-import javafx.util.Pair;
-
 import java.util.ArrayList;
 
 
@@ -20,12 +18,12 @@ public class Order {
         checkData(cWidth);
         checkData(cLength);
 
-
         this.orderID = orderID;
         this.carportWidth = cWidth;
         this.carportLength = cLength;
         setComponentList();
     }
+
     public Order (int cWidth, int cLength){
         checkData(cWidth);
         checkData(cLength);

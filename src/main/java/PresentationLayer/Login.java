@@ -1,9 +1,7 @@
 package PresentationLayer;
 
-import FunctionLayer.LogicFacade;
-import FunctionLayer.LoginSampleException;
-import FunctionLayer.Order;
-import FunctionLayer.User;
+import FunctionLayer.*;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -33,6 +31,7 @@ public class Login extends Command {
         session.setAttribute("address", user.getAddress());
 
         if (user.getRole().equals("employee")) {
+            Material.InitMaterials();
             ArrayList<Order> orderList = LogicFacade.getAllOrders();
             session.setAttribute("orderList", orderList);
         }

@@ -34,6 +34,10 @@ public class MaterialMapper {
 
                     materials.add(new Material(materialID, width, length, height, type, name, price));
 
+                    for (Material m : materials) {
+                        System.out.println(m.getName());
+                    }
+
                 }
             }
 

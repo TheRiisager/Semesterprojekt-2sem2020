@@ -36,9 +36,10 @@
         </thead>
 
 
-    <c:forEach var="pair" items="${componentList}">
+    <c:forEach var="entry" items="${componentList}">
         <tr>
-            <td>${pair.getKey.getKey.}</td>
+            <td>${entry.getKey.getName}</td>
+            <td>H:${entry.getKey.getHeight}</td>
         </tr>
     </c:forEach>
     </table>
