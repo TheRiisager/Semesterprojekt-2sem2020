@@ -1,7 +1,6 @@
 package FunctionLayer;
 import java.util.ArrayList;
 import java.util.Objects;
-import FunctionLayer.Material;
 
 public class ListCreator {
 
@@ -21,9 +20,9 @@ public class ListCreator {
 
     }
 
-    public static String componentListToString(ArrayList<javafx.util.Pair> componentList){
+    public static String componentListToString(ArrayList<Pair> componentList){
         String string = "";
-        for(javafx.util.Pair p : componentList){
+        for(Pair p : componentList){
             Material value = (Material) p.getKey();
             int key = (int) p.getValue();
 
@@ -33,8 +32,8 @@ public class ListCreator {
         return string;
     }
 
-    public static ArrayList<javafx.util.Pair> stringToComponentList(String string){
-        ArrayList<javafx.util.Pair> componentList = new ArrayList<>();
+    public static ArrayList<Pair> stringToComponentList(String string){
+        ArrayList<Pair> componentList = new ArrayList<>();
         String[] arrOfStr = string.split("-",0);
 
         for(String a : arrOfStr) {
@@ -44,7 +43,7 @@ public class ListCreator {
 
             for(Material b : Material.materialList){
                 if(b.getMaterialID()==key){
-                    componentList.add(new javafx.util.Pair(b,value));
+                    componentList.add(new Pair(b,value));
                     break;
                 }
             }
