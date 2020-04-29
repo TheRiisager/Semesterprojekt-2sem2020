@@ -24,12 +24,6 @@ public class SaveDesign extends Command {
 
         order = LogicFacade.createOrder(order);
 
-        session.setAttribute("order", order);
-
-
-
-
-
         return user.getRole() + "page";
     }
 }

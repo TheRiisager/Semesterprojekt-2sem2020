@@ -31,6 +31,14 @@ public class Material {
         return type;
     }
 
+    public int getMaterialID() {
+        return materialID;
+    }
+
+    public void setMaterialID(int materialID) {
+        this.materialID = materialID;
+    }
+
     public int getLength() {
         return length;
     }
