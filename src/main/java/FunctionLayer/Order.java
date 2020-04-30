@@ -21,7 +21,6 @@ public class Order {
         this.orderID = orderID;
         this.carportWidth = cWidth;
         this.carportLength = cLength;
-        setComponentList();
     }
 
     public Order (int cWidth, int cLength){
@@ -30,7 +29,6 @@ public class Order {
 
         this.carportWidth = cWidth;
         this.carportLength = cLength;
-        setComponentList();
     }
 
     public int getCarportWidth() {

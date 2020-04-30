@@ -1,27 +1,27 @@
 package FunctionLayer;
 
-public class Pair<K,V> {
-    private K key;
-    private V value;
+public class Pair {
+    private Material key;
+    private int value;
 
-    Pair( K key, V value){
+    public Pair(Material key, int value){
         this.key = key;
         this.value = value;
     }
 
-    public K getKey() {
+    public Material getKey() {
         return key;
     }
 
-    public void setKey(K key) {
+    public void setKey(Material key) {
         this.key = key;
     }
 
-    public V getValue() {
+    public int getValue() {
         return value;
     }
 
-    public void setValue(V value) {
+    public void setValue(int value) {
         this.value = value;
     }
 }

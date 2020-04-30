@@ -33,7 +33,7 @@
                         <table class="table table-hover text-left">
                             <tr>
                                 <td class="w-25">${order.getOrderID()}</td>
-                                <td class="w-75">${order.getCarportLength()}x${order.getCarportWidth()}x${order.getCarportHeight()}</td>
+                                <td class="w-75">${order.getCarportLength()}x${order.getCarportWidth()}</td>
                             </tr>
                         </table>
                     </button>

@@ -36,10 +36,10 @@
         </thead>
 
 
-    <c:forEach var="entry" items="${componentList}">
+    <c:forEach var="entry" items="${sessionScope.componentList}">
         <tr>
-            <td>${entry.getKey.getName}</td>
-            <td>H:${entry.getKey.getHeight}</td>
+            <td>${entry.getKey()}</td>
+            <td>H:${entry.getKey()}</td>
         </tr>
     </c:forEach>
     </table>

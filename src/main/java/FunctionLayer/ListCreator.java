@@ -8,13 +8,13 @@ public class ListCreator {
         ArrayList<Pair> componentList = new ArrayList<>();
 
         //spær
-        componentList.add( Calculator.calculateParts( order, Objects.requireNonNull(Calculator.findMaterial("spær", order) ) ) );
+        componentList.add( Calculator.calculateParts( order, (Calculator.findMaterial("Spær", order) ) ) );
 
         //stolper
-        componentList.add( Calculator.calculateParts( order, Objects.requireNonNull(Calculator.findMaterial("stolpe", order) ) ) );
+        componentList.add( Calculator.calculateParts( order, Calculator.findMaterial("Stolpe", order) ) );
 
         //remme
-        componentList.add( Calculator.calculateParts( order, Objects.requireNonNull(Calculator.findMaterial("rem", order) ) ) );
+        componentList.add( Calculator.calculateParts( order, Calculator.findMaterial("Rem", order ) ) );
 
         return componentList;
 

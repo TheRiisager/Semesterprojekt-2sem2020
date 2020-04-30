@@ -1,8 +1,6 @@
 package PresentationLayer;
 
-import FunctionLayer.LogicFacade;
-import FunctionLayer.LoginSampleException;
-import FunctionLayer.Order;
+import FunctionLayer.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +15,12 @@ public class showOrder extends Command {
         int oid = Integer.parseInt( oidString );
 
         Order order = LogicFacade.getOrder( oid );
+        order.setComponentList();
+        System.out.println(new Pair(new Material(-1,-1,-1,-1,"error","error",-1), -1));
+
+        System.out.println("is componentList empty? " + order.getComponentList().get(0).getKey());
+
+
 
         HttpSession session = request.getSession();
 

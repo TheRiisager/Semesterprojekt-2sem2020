@@ -12,7 +12,7 @@ public class MaterialMapper {
 
 
     public static ArrayList<Material> loadMaterials(){
-        System.out.println("method called");
+
         ArrayList<Material> materials = new ArrayList<>();
 
         try{
@@ -21,8 +21,7 @@ public class MaterialMapper {
                 PreparedStatement ps = con.prepareStatement(SQL);
                 ResultSet rs = ps.executeQuery();
 
-                while (rs.next()) {
-                    System.out.println("while loop running");
+                while ( rs.next() ) {
                     int materialID = rs.getInt("materialID");
                     String type = rs.getString("type");
                     String name = rs.getString("name");
@@ -30,13 +29,7 @@ public class MaterialMapper {
                     int length = rs.getInt("length");
                     int width = rs.getInt("width");
                     int height = rs.getInt("height");
-
                     materials.add(new Material(materialID, width, length, height, type, name, price));
-
-
-                }
-                for (Material m : materials) {
-                    System.out.println(m.getName());
                 }
                 return materials;
 

@@ -3,7 +3,7 @@ package FunctionLayer;
 import java.util.ArrayList;
 
 public class Material {
-    public static ArrayList<Material> materialList;
+    public static ArrayList<Material> materialList = new ArrayList<>();
 
     private int materialID;
     private int width, length, height;
@@ -21,10 +21,6 @@ public class Material {
         this.type = type;
         this.name = name;
         this.price = price;
-
-        if( materialList.isEmpty() ){
-            materialList = LogicFacade.loadMaterials();
-        }
     }
 
     public String getType() {
@@ -49,6 +45,10 @@ public class Material {
 
     public static void InitMaterials(){
         materialList = LogicFacade.loadMaterials();
+    }
+
+    public static ArrayList<Material> getMaterialList() {
+        return materialList;
     }
 
     @Override
