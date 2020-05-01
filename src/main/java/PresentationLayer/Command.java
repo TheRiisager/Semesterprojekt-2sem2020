@@ -18,6 +18,8 @@ abstract class Command {
         commands.put( "designpage", new DesignPage() );
         commands.put( "UpdateOrder", new UpdateOrder() );
         commands.put( "savedesign", new SaveDesign() );
+        commands.put( "UpdateUser", new UpdateUser());
+
     }
 
     static Command from( HttpServletRequest request ) {

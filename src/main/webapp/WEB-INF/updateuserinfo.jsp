@@ -11,8 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-<form name="User" action="User" method="post">
-    <input type="hidden" name="target" value="opdatér">
+<form name="User" action="FrontController" method="post">
+    <input type="hidden" name="UpdateUser" value="opdatér">
     Navn: <br>
     <input type="text" name="name" value="" required>
     email: <br>
