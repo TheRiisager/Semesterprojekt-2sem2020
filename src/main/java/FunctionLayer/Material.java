@@ -6,14 +6,16 @@ public class Material {
     public static ArrayList<Material> materialList = new ArrayList<>();
 
     private int materialID;
-    private int width, length, height;
+    private float width;
+    private float length;
+    private float height;
 
     private String type;
     private String name;
 
     private float price;
 
-    public Material( int materialID, int width, int length, int height, String type, String name, float price ) {
+    public Material( int materialID, float width, float length, float height, String type, String name, float price ) {
         this.materialID = materialID;
         this.width = width;
         this.length = length;
@@ -35,15 +37,15 @@ public class Material {
         this.materialID = materialID;
     }
 
-    public int getLength() {
+    public float getLength() {
         return length;
     }
 
-    public int getWidth() {
+    public float getWidth() {
         return width;
     }
 
-    public int getHeight() {
+    public float getHeight() {
         return height;
     }
 

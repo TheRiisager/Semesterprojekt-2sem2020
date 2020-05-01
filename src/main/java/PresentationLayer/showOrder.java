@@ -16,7 +16,6 @@ public class showOrder extends Command {
 
         Order order = LogicFacade.getOrder( oid );
         order.setComponentList();
-        System.out.println(new Pair(new Material(-1,-1,-1,-1,"error","error",-1), -1) );
 
         float totalPrice = 0;
 
