@@ -16,9 +16,15 @@ public class showOrder extends Command {
 
         Order order = LogicFacade.getOrder( oid );
         order.setComponentList();
-        System.out.println(new Pair(new Material(-1,-1,-1,-1,"error","error",-1), -1));
+        System.out.println(new Pair(new Material(-1,-1,-1,-1,"error","error",-1), -1) );
 
-        System.out.println("is componentList empty? " + order.getComponentList().get(0).getKey());
+        float totalPrice = 0;
+
+        for(Pair p : order.getComponentList()) {
+            totalPrice += p.getKey().getPrice() * p.getValue();
+        }
+
+
 
 
 
@@ -28,6 +34,7 @@ public class showOrder extends Command {
         session.setAttribute( "width" , order.getCarportWidth() );
         session.setAttribute( "length" , order.getCarportLength() );
         session.setAttribute( "componentList", order.getComponentList() );
+        session.setAttribute( "totalPrice" , totalPrice );
 
         return "salesorderview";
     }

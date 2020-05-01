@@ -39,6 +39,18 @@ public class Material {
         return length;
     }
 
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
     public String getName() {
         return name;
     }

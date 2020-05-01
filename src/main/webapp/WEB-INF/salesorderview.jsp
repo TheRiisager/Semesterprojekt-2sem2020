@@ -31,17 +31,30 @@
         <thead class="thead-dark">
         <tr>
             <th>ID</th>
+            <th>Name</th>
             <th>Dimensioner</th>
+            <th>Antal</th>
+            <th>Pris (i alt)</th>
         </tr>
         </thead>
 
 
     <c:forEach var="entry" items="${sessionScope.componentList}">
         <tr>
-            <td>${entry.getKey()}</td>
-            <td>H:${entry.getKey()}</td>
+            <td>${entry.getKey().getMaterialID()}</td>
+            <td>${entry.getKey().getName()}</td>
+            <td>H:${entry.getKey().getHeight()} B:${entry.getKey().getWidth()} L:${entry.getKey().getLength()}</td>
+            <td>${entry.getValue()}</td>
+            <td>${entry.getKey().getPrice() * entry.getValue()}kr.</td>
         </tr>
     </c:forEach>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="font-weight: bold">Total: ${sessionScope.totalPrice}kr.</td>
+        </tr>
     </table>
 
 </body>

@@ -13,18 +13,24 @@ public class Calculator {
 
         int amount;
 
-        if( material.getType().equals( "spær" ) ){
+        if( material.getType().equals( "Spær" ) ){
             amount = (order.getCarportLength() / MODULESIZE) / spaerSpacing;
 
             return new Pair( material , amount );
         }
 
-        if( material.getType().equals( "rem" ) ){
+        if( material.getType().equals( "Rem" ) ){
             return new Pair( material , 2 );
         }
 
-        if ( material.getType().equals( "stolpe" ) ){
+        if ( material.getType().equals( "Stolpe" ) ){
             amount = (order.getCarportLength() / MODULESIZE) / stolpeSpacing;
+            amount = amount * 2;
+
+            if(amount < 4) {
+                amount = 4;
+            }
+
             return new Pair( material, amount );
         }
 
@@ -32,8 +38,8 @@ public class Calculator {
     }
 
     public static Material findMaterial( String type , Order order ) {
-        Material suitableMat = null;
         ArrayList<Material> materialList = (ArrayList<Material>) Material.getMaterialList().clone();
+        Material suitableMat = null;
 
         Predicate<Material> filter = (Material mat) -> ( !mat.getType().equals( type ) );
 
