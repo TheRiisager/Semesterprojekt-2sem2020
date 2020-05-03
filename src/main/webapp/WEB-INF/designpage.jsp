@@ -13,6 +13,9 @@
     <title>Title</title>
 </head>
 <h1> Carport creation page</h1>
+
+<a href="FrontController?target=drawing">See drawing</a>
+
 <body>
 
 <form oninput="x.value=parseInt(a.value)*parseInt(b.value)">
