@@ -12,7 +12,7 @@
 </head>
 <body>
 <form name="User" action="FrontController" method="post">
-    <input type="hidden" name="UpdateUser" value="opdatér">
+    <input type="hidden" name="target" value="UpdateUser">
     Navn: <br>
     <input type="text" name="name" value="" required>
     email: <br>
