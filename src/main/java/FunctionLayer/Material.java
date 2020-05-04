@@ -7,7 +7,7 @@ public class Material {
 
     private int materialID;
     private float width;
-    private float length;
+    private float length; 
     private float height;
 
     private String type;
