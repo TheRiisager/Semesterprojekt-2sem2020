@@ -1,7 +1,5 @@
 package FunctionLayer;
 
-import com.sun.javafx.binding.StringFormatter;
-
 public class Svg {
 
     private int width;
