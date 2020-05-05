@@ -13,6 +13,8 @@ public class Order {
     private int carportWidth, carportLength;
     private int orderID;
     private int userID;
+    private String componentString;
+    private int status;
 
     public Order (int orderID, int cWidth, int cLength) {
         checkData(cWidth);
@@ -23,6 +25,8 @@ public class Order {
         this.carportLength = cLength;
     }
 
+
+
     public Order (int cWidth, int cLength){
         checkData(cWidth);
         checkData(cLength);
@@ -30,6 +34,25 @@ public class Order {
         this.carportWidth = cWidth;
         this.carportLength = cLength;
     }
+
+    public Order (int orderID, int cWidth, int cLength, String componentString, int status){
+        checkData(cWidth);
+        checkData(cLength);
+
+        this.orderID = orderID;
+        this.carportWidth = cWidth;
+        this.carportLength = cLength;
+        this.componentString = componentString;
+        this.status = status;
+    }
+
+    public int getStatus() { return status; }
+
+    public void setStatus(int status) { this.status = status; }
+
+    public String getComponentString() { return componentString; }
+
+    public void setComponentString(String componentString) { this.componentString = componentString; }
 
     public int getCarportWidth() {
         return carportWidth;

@@ -20,6 +20,8 @@ public class UpdateOrder extends Command {
 
         int height = Integer.parseInt( request.getParameter("height" ) );
 
+        int status = Integer.parseInt("status");
+
         System.out.println("parsing dimensions complete");
 
         HttpSession session = request.getSession();
@@ -30,7 +32,7 @@ public class UpdateOrder extends Command {
 
         int orderID = Integer.parseInt( oidString );
 
-        LogicFacade.updateOrder( orderID, length, width, height );
+        LogicFacade.updateOrder( orderID, length, width, height, status);
 
         Order order = LogicFacade.getOrder( orderID );
         session.setAttribute( "oid" , oidString );

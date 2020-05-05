@@ -2,6 +2,7 @@ package DBAccess;
 
 import FunctionLayer.Order;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,8 +24,10 @@ public class OrderMapper {
                 int orderID = rs.getInt("orderID");
                 int length = rs.getInt("Length");
                 int width = rs.getInt("Width");
+                int status = rs.getInt("status");
+                String componetString = rs.getString("componentList");
 
-                orders.add( new Order( orderID, width, length ) );
+                orders.add( new Order( orderID, width, length, componetString, status ) );
 
             }
 
@@ -52,8 +55,10 @@ public class OrderMapper {
             if(rs.next() ) {
                 int length = rs.getInt("Length");
                 int width = rs.getInt("Width");
+                int status = rs.getInt("status");
+                String componetString = rs.getString("componentList");
 
-                order = new Order(orderID, width, length);
+                order = new Order(orderID, width, length, componetString, status);
             }
 
         }catch ( SQLException e ){
@@ -69,14 +74,16 @@ public class OrderMapper {
         return order;
     }
 
-    public static void updateOrder ( int orderID, int length, int width ) {
+    //TODO: Implement status and componentList
+    public static void updateOrder ( int orderID, int length, int width, int status ) {
         try {
             Connection con = Connector.connection();
-            String SQL = "UPDATE Orders SET Length=?, Width=? WHERE orderID = ?;";
+            String SQL = "UPDATE Orders SET Length=?, Width=?, Status=? WHERE orderID = ?;";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setInt( 1, length );
             ps.setInt( 2, width );
             ps.setInt( 3, orderID );
+            ps.setInt( 4, status );
 
             ps.executeUpdate();
         }catch ( SQLException e ){
@@ -90,16 +97,19 @@ public class OrderMapper {
     }
 
 
+
     public static Order createOrderToDB(Order order){
 
         try{
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO Orders (Length, Width, userID)"
-                    + "VALUES    (?, ?, ?);";
+            String SQL = "INSERT INTO Orders (Length, Width, userID, componentList, status)"
+                    + "VALUES    (?, ?, ?, ?, ?);";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, order.getCarportLength());
             ps.setInt(2, order.getCarportWidth());
             ps.setInt( 3, order.getUserID() );
+            ps.setString(4, order.getComponentString());
+            ps.setInt(5, order.getStatus());
             ps.executeUpdate();
 
             ResultSet ids = ps.getGeneratedKeys();
