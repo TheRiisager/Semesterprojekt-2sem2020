@@ -6,17 +6,15 @@ import java.util.function.Predicate;
 public class Calculator {
 
     final static int MODULESIZE = 30;
-    private static int spaerSpacing = 2;
-    private static int stolpeSpacing = 10;
+    private static int spaerSpacing = 3 * MODULESIZE;
+    private static int stolpeSpacing = 10 * MODULESIZE;
 
     public static Pair calculateParts( Order order , Material material ) {
 
-        int amount;
+        int spacing = 0;
 
         if( material.getType().equals( "Spær" ) ){
-            amount = (order.getCarportLength() / MODULESIZE) / spaerSpacing;
-
-            return new Pair( material , amount );
+            spacing = spaerSpacing;
         }
 
         if( material.getType().equals( "Rem" ) ){
@@ -24,17 +22,30 @@ public class Calculator {
         }
 
         if ( material.getType().equals( "Stolpe" ) ){
-            amount = (order.getCarportLength() / MODULESIZE) / stolpeSpacing;
-            amount = amount * 2;
-
-            if(amount < 4) {
-                amount = 4;
-            }
-
-            return new Pair( material, amount );
+            spacing = stolpeSpacing;
         }
 
-        return null;
+        if(spacing == 0) {
+            System.out.println("Type ikke genkendt, returnerer null");
+            return null;
+        }
+
+        int amount = 2;
+        int divisor = 2;
+        float length = order.getCarportLength() - ( MODULESIZE * 2 );
+
+        while(true) {
+
+            float tempLength = length / divisor;
+
+            if( tempLength <= spacing ) {
+                amount += divisor -1;
+                break;
+            }
+            divisor++;
+        }
+
+        return new Pair( material , amount );
     }
 
     public static Material findMaterial( String type , Order order ) {
