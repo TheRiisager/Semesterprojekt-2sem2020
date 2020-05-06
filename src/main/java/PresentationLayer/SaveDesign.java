@@ -22,7 +22,7 @@ public class SaveDesign extends Command {
 
         order.setUserID(user.getId());
 
-        order = LogicFacade.createOrder(order);
+        LogicFacade.createOrder(order);
 
         return user.getRole() + "page";
     }
