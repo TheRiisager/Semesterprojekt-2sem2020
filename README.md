@@ -1,4 +1,4 @@
-# Skabelon til Java webprojekter
+# Gruppe 750
 
 Denne skabelon anvendes på 2. semester på datamatikeruddannelsen i Lyngby og på Bornholm. Den er baseret på et command pattern.
 
