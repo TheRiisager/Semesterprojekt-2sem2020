@@ -27,6 +27,8 @@
         <input type="submit" value="Opdater værdier">
     </form>
 
+    ${sessionScope.svg}
+
     <table class="table table-hover" style="width: 75%;">
         <thead class="thead-dark">
         <tr>

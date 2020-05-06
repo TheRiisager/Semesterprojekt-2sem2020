@@ -6,13 +6,13 @@ import FunctionLayer.Svg;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Drawing extends Command {
+public class drawingOLD extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
-        int width = ((int) order.().getWidth("width")/10);
-        int length = ((int) request.().getAttribute("length")/10);
+        //int width = ((int) order.().getWidth("width")/10);
+        //int length = ((int) request.().getAttribute("length")/10);
 
 
 

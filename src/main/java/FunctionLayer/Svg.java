@@ -21,8 +21,8 @@ public class Svg {
         svg.append(String.format(headerTemplate, height, width, viewbox));
     }
 
-    public void addRect(int x, int y, int height, int width){
-        svg.append(String.format(rectTemplate, x, y, height, width));
+    public void addRect(int x, int y, float height, float width){
+        svg.append(String.format(rectTemplate, x, y, height, width) );
     }
 
     public int getWidth() {

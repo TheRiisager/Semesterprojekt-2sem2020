@@ -1,6 +1,7 @@
 package PresentationLayer;
 
 import FunctionLayer.*;
+import FunctionLayer.Drawing;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,6 +35,7 @@ public class showOrder extends Command {
         session.setAttribute( "length" , order.getCarportLength() );
         session.setAttribute( "componentList", order.getComponentList() );
         session.setAttribute( "totalPrice" , totalPrice );
+        session.setAttribute("svg" , Drawing.draw(order) );
 
         return "salesorderview";
     }
