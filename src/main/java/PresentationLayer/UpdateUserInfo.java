@@ -21,6 +21,11 @@ public class UpdateUserInfo extends Command {
         user.setAddress(address);
         user.setPhoneNumber(phoneNumber);
 
+        LogicFacade.updateUserInfo(user);
+
+        session.setAttribute("name", name);
+        session.setAttribute("address", address);
+        session.setAttribute("phonenumber", phoneNumber);
 
 
 
