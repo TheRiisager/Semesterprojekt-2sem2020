@@ -1,6 +1,7 @@
 package DBAccess;
 
 import FunctionLayer.Order;
+import FunctionLayer.User;
 
 
 import java.sql.Connection;
@@ -41,6 +42,38 @@ public class OrderMapper {
         }
 
         return orders;
+    }
+
+    public static ArrayList<Order> getOrders (User user) {
+        ArrayList<Order> orderList = new ArrayList<Order>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM Orders WHERE userID = ?;";
+            PreparedStatement ps = con.prepareStatement( SQL );
+            ps.setInt( 1, user.getId() );
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next() ) {
+                int orderID = rs.getInt("orderID");
+                int length = rs.getInt("Length");
+                int width = rs.getInt("Width");
+                int status = rs.getInt("status");
+                String componetString = rs.getString("componentList");
+
+                orderList.add(new Order(orderID, width, length, componetString, status));
+            }
+
+        }catch ( SQLException e ){
+            System.out.println( e );
+            System.out.println( "SQL exception in OrderMapper.getOrders()" );
+
+        }catch (ClassNotFoundException a){
+            System.out.println( a );
+            System.out.println( "ClassNotFound Exception in OrderMapper.getOrders()" );
+        }
+
+
+        return orderList;
     }
 
     public static Order getOrder ( int orderID ) {

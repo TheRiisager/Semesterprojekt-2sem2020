@@ -9,12 +9,12 @@
 
         <h1>Hello ${sessionScope.email} </h1>
 
-        <form>
+        <form name="Designpage" action="FrontController" method="POST">
             <input type="hidden" name="target" value="designpage">
             <input type="submit" value="Designside">
         </form>
-        <form>
-            <input type="hidden" name="target" value="AccountPage">
+        <form name="AccountPage" action="FrontController" method="POST">
+            <input type="hidden" name="target" value="accountpage">
             <input type="submit" value="kontoside">
         </form>
 

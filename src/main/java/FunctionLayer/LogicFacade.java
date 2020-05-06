@@ -27,6 +27,8 @@ public class LogicFacade {
        return OrderMapper.getAllOrders();
     }
 
+    public static ArrayList<Order> getOrders(User user) { return OrderMapper.getOrders(user);}
+
 
     public static Order createOrder(Order order){
         order = OrderMapper.createOrderToDB(order);
@@ -40,6 +42,8 @@ public class LogicFacade {
     public static void updateOrder( int orderID, int length, int width, int status ){
         OrderMapper.updateOrder( orderID, length, width, status );
     }
+
+    public static boolean updateUserInfo(User user){return UserMapper.updateUserInfo(user);}
 
     public static ArrayList<Material> loadMaterials(){
         return MaterialMapper.loadMaterials();

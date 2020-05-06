@@ -67,18 +67,24 @@ public class UserMapper {
 
     public static Boolean updateUserInfo(User user){
         try{
+
             Connection con = Connector.connection();
-            String SQL =  "UPDATE Users SET Name = ?, phoneNumber = ?, address = ?, password = ? WHERE userID = ?";
+            String SQL =  "UPDATE Users SET Name = ?, phoneNumber = ?, address = ? WHERE userID = ?";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setString( 1, user.getName() );
-            ps.setString( 2, user.getPhoneNumber() );
+
+            String phoneNumber = user.getPhoneNumber();
+            int phoneNr = Integer.parseInt(phoneNumber);
+
+            ps.setInt( 2, phoneNr );
             ps.setString( 3, user.getAddress() );
-            ps.setString( 4, user.getPassword() );
+            ps.setInt( 4, user.getId() );
             ps.executeUpdate();
+
 
             return true;
         }catch(SQLException | ClassNotFoundException ex){
-
+            System.out.println(ex);
             return false;
         }
 

@@ -18,8 +18,10 @@ abstract class Command {
         commands.put( "designpage", new DesignPage() );
         commands.put( "UpdateOrder", new UpdateOrder() );
         commands.put( "savedesign", new SaveDesign() );
-        commands.put( "UpdateUser", new UpdateUser());
+        commands.put( "updateuser", new UpdateUser());
         commands.put( "drawing", new drawingOLD() );
+        commands.put( "accountpage", new AccountPage() );
+        commands.put( "updateuserinfo", new UpdateUserInfo() );
 
     }
 

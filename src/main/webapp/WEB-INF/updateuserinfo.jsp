@@ -6,28 +6,20 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<jsp:include page="header.jsp"/>
 <form name="User" action="FrontController" method="post">
-    <input type="hidden" name="target" value="UpdateUser">
+    <input type="hidden" name="target" value="updateuserinfo">
     Navn: <br>
-    <input type="text" name="name" value="" required>
-    email: <br>
-    <input type="text" name="email" value="" required>
-    TelefonNummer: <br>
-    <input type="number" name="phoneNumber" value="" required>
-    addresse: <br>
-    <input type="text" name="address" value="" required>
-    Adgangskode: <br>
-    <input type="text" name="Password" value="" reqired>
+    <input type="text" name="name" value=${sessionScope.name} required>
     <br>
-    <input type="submit" value="Opdater bruger">
+    TelefonNummer: <br>
+    <input type="number" name="phonenumber" value=${sessionScope.phonenumber} required>
+    <br>
+    addresse: <br>
+    <input type="text" name="address" value=${sessionScope.address} required>
+    <br>
+    <input type="submit" value="Opdater info">
     
 
 </form>
-
-</body>
-</html>
+<jsp:include page="footer.jsp"/>
