@@ -34,18 +34,23 @@ public class Drawing {
                 Material mat = p.getKey();
 
                 y = Calculator.MODULESIZE;
-                x = 30;
+                x = Calculator.MODULESIZE;
                 while( x <= length ) {
                     svg.addRect(x , y , mat.getHeight() , mat.getWidth() );
                     x += spacing;
                 }
 
                 y = order.getCarportWidth() - Calculator.MODULESIZE;
-                x = 30;
+                x = Calculator.MODULESIZE;
+                System.out.println("Length: " + length + " Spacing: " + spacing);
                 while( x <= length ) {
                     svg.addRect(x , y , mat.getHeight() , mat.getWidth() );
                     x += spacing;
                 }
+
+                svg.addRect(length , y , mat.getHeight() , mat.getWidth() );
+                y = Calculator.MODULESIZE;
+                svg.addRect(length , y , mat.getHeight() , mat.getWidth() );
             }
         }
 

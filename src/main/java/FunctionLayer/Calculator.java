@@ -78,7 +78,7 @@ public class Calculator {
             materialList.removeIf( filter );
             suitableMat = materialList.get(0);
             for ( Material m : materialList ) {
-               if ( m.getLength() >= order.getCarportLength() ) {
+               if ( m.getLength() >= order.getCarportLength() && m.getLength() < suitableMat.getLength() ) {
                     suitableMat = m;
                 }
             }
