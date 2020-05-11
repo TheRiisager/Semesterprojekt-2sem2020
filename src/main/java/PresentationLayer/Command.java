@@ -14,7 +14,7 @@ abstract class Command {
         commands.put( "login", new Login() );
         commands.put( "register", new Register() );
         commands.put( "loadOrders", new LoadOrders() );
-        commands.put( "salesOrderView", new showOrder() );
+        commands.put( "showOrder", new showOrder() );
         commands.put( "designpage", new DesignPage() );
         commands.put( "UpdateOrder", new UpdateOrder() );
         commands.put( "savedesign", new SaveDesign() );

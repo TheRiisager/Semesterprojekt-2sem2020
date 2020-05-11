@@ -2,7 +2,7 @@ package FunctionLayer;
 
 import java.util.ArrayList;
 
-public class Material {
+public class Material implements Comparable<Material>{
     public static ArrayList<Material> materialList = new ArrayList<>();
 
     private int materialID;
@@ -68,5 +68,17 @@ public class Material {
     @Override
     public String toString(){
         return name + " (" + width + "x" + height + ")";
+    }
+
+    @Override
+    public int compareTo(Material material) {
+        if(this.length == material.length) {
+            return 0;
+        } else if(this.length < material.length){
+            return 1;
+        } else {
+            return -1;
+        }
+
     }
 }

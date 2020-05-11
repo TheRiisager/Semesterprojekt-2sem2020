@@ -23,11 +23,6 @@ public class showOrder extends Command {
         for(Pair p : order.getComponentList()) {
             totalPrice += p.getKey().getPrice() * p.getValue();
         }
-
-
-
-
-
         HttpSession session = request.getSession();
 
         session.setAttribute( "oid" , oidString );
@@ -36,6 +31,10 @@ public class showOrder extends Command {
         session.setAttribute( "componentList", order.getComponentList() );
         session.setAttribute( "totalPrice" , totalPrice );
         session.setAttribute("svg" , Drawing.draw(order) );
+
+        if (session.getAttribute("role").equals("customer") ) {
+            return "userorderview";
+        }
 
         return "salesorderview";
     }

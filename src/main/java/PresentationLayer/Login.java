@@ -29,9 +29,9 @@ public class Login extends Command {
         session.setAttribute("name", user.getName() );
         session.setAttribute("phonenumber", user.getPhoneNumber());
         session.setAttribute("address", user.getAddress());
+        Material.InitMaterials();
 
         if (user.getRole().equals("employee")) {
-            Material.InitMaterials();
             ArrayList<Order> orderList = LogicFacade.getAllOrders();
             session.setAttribute("orderList", orderList);
         }

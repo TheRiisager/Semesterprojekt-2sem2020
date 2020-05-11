@@ -1,6 +1,7 @@
 package FunctionLayer;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.function.Predicate;
 
 public class Calculator {
@@ -63,6 +64,8 @@ public class Calculator {
 
         if ( type.equals( "Spær" ) ) {
             materialList.removeIf( filter );
+            Collections.sort(materialList);
+
             suitableMat = materialList.get(0);
             for ( Material m : materialList ) {
                  if ( m.getLength() >= order.getCarportWidth() && m.getLength() < suitableMat.getLength() ) {
@@ -76,6 +79,8 @@ public class Calculator {
 
         if ( type.equals( "Rem" ) ) {
             materialList.removeIf( filter );
+            Collections.sort(materialList);
+
             suitableMat = materialList.get(0);
             for ( Material m : materialList ) {
                if ( m.getLength() >= order.getCarportLength() && m.getLength() < suitableMat.getLength() ) {

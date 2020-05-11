@@ -48,9 +48,13 @@
                                 ${sessionScope.email}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <c:set var = "customer" scope = "request" value = "customer"/>
+                                <c:choose>
+                                    <c:when test="${sessionScope.role == customer}">
+                                        <a class="dropdown-item" href="#">Konto</a>
+                                    </c:when>
+                                </c:choose>
+                                <a class="dropdown-item" href="#">Log ud</a>
                             </div>
                         </li>
                     </c:when>
