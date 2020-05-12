@@ -53,6 +53,9 @@ public class Drawing {
                 svg.addRect(x , y , mat.getHeight() , mat.getWidth() );
             }
         }
+        if ( p.getKey().getType().equals("Rem") ){
+
+
 
         return svg.toString();
     }
