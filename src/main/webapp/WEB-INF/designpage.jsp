@@ -1,14 +1,34 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <jsp:include page="header.jsp"/>
 
-    <form name="savedesign" action="FrontController" method="POST" oninput="x.value=Math.round( ( parseInt(a.value) / 100 ) * ( parseInt(b.value) / 100 ) )">
-        <input type="hidden" name="target" value="savedesign">
-        <h2> Insert length here</h2>
-        <input type="number" name= "length" value = "" id="a"><br>
-        <h2> insert width here</h2>
-        <input type="number" name="width" value="" id="b"><br>
-        <h2> Din carports areal er: <output name="x"  for="a b"></output>m2</h2>
+<form name="savedesign" action="FrontController" method="POST" oninput="x.value=Math.round( ( parseInt(a.value) / 100 ) * ( parseInt(b.value) / 100 ) )">
 
-        <input type="submit" value="Gem design">
-    </form>
+    <input type="hidden" name="target" value="savedesign">
+    <div class="form-group">
+        <select name="width" id="a" class="form-control">
+            <c:forEach items="${widthlengthoptions}" var="width">
+                <option value="${width}">
+                        ${width}cm
+                </option>
+            </c:forEach>
+        </select>
+        <select name="length" id="b" class="form-control">
+            <c:forEach items="${widthlengthoptions}" var="length">
+                <option value="${length}">
+                        ${length}cm
+                </option>
+            </c:forEach>
+        </select>
+    </div>
+    <h2> Din carports areal er: <output name="x"  for="a b"></output>m2</h2>
+
+    <input type="submit" value="Gem design">
+</form>
+
+
 
 <jsp:include page="footer.jsp"/>
+
+
