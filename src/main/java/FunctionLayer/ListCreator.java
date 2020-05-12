@@ -28,8 +28,8 @@ public class ListCreator {
     public static String componentListToString(ArrayList<Pair> componentList){
         String string = "";
         for(Pair p : componentList){
-            Material value = (Material) p.getKey();
-            int key = (int) p.getValue();
+            Material value = p.getKey();
+            int key = p.getValue();
 
             string += value.getMaterialID() + "," + key + "-";
 

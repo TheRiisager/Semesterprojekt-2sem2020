@@ -31,6 +31,8 @@ public class Login extends Command {
         session.setAttribute("address", user.getAddress());
         Material.InitMaterials();
 
+        Material.InitMaterials();
+
         if (user.getRole().equals("employee")) {
             ArrayList<Order> orderList = LogicFacade.getAllOrders();
             session.setAttribute("orderList", orderList);

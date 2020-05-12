@@ -4,10 +4,7 @@ import FunctionLayer.Order;
 import FunctionLayer.User;
 
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class OrderMapper {
@@ -137,7 +134,7 @@ public class OrderMapper {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO Orders (Length, Width, userID, componentList, status)"
                     + "VALUES    (?, ?, ?, ?, ?);";
-            PreparedStatement ps = con.prepareStatement(SQL);
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, order.getCarportLength());
             ps.setInt(2, order.getCarportWidth());
             ps.setInt( 3, order.getUserID() );

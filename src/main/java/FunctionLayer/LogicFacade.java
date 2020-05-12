@@ -4,6 +4,7 @@ import DBAccess.MaterialMapper;
 import DBAccess.OrderMapper;
 import DBAccess.UserMapper;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -31,8 +32,8 @@ public class LogicFacade {
 
 
     public static Order createOrder(Order order){
-        order = OrderMapper.createOrderToDB(order);
-        return order;
+        order.setComponentString(ListCreator.createList(order));
+        return OrderMapper.createOrderToDB(order);
     }
 
     public static Order getOrder( int orderID ) {
