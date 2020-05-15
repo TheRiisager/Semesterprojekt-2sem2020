@@ -22,6 +22,8 @@ abstract class Command {
         commands.put( "drawing", new drawingOLD() );
         commands.put( "accountpage", new AccountPage() );
         commands.put( "updateuserinfo", new UpdateUserInfo() );
+        commands.put( "home", new Home() );
+        commands.put( "logout", new LogOut() );
 
     }
 

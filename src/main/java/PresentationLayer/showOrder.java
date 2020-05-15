@@ -33,7 +33,7 @@ public class showOrder extends Command {
         session.setAttribute("svg" , Drawing.draw(order) );
 
         if (session.getAttribute("role").equals("customer") ) {
-            return "userorderview";
+            return "customerorderview";
         }
 
         return "salesorderview";

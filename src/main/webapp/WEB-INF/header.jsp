@@ -26,20 +26,26 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>
     <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Hjem <span class="sr-only">(current)</span></a>
+                    <form name="index" action="FrontController" method="POST">
+                        <input type="hidden" name="target" value="home">
+                        <input type="submit" value="Hjem" class="nav-link" style="border: none; background: none; text-decoration: none;">
+                    </form>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Carporte</a>
+                    <a class="nav-link" href="https://www.johannesfog.dk/byggecenter/have--fritid/byg-selv-produkter/?id=31893">Carporte</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Byg selv</a>
+                    <form name="index" action="FrontController" method="POST">
+                        <input type="hidden" name="target" value="designpage">
+                        <input type="submit" value="Byg Selv" class="nav-link" style="border: none; background: none; text-decoration: none;">
+                    </form>
                 </li>
                 <c:choose>
                     <c:when test="${sessionScope.email != null}">
@@ -51,10 +57,16 @@
                                 <c:set var = "customer" scope = "request" value = "customer"/>
                                 <c:choose>
                                     <c:when test="${sessionScope.role == customer}">
-                                        <a class="dropdown-item" href="#">Konto</a>
+                                        <form name="index" action="FrontController" method="POST">
+                                            <input type="hidden" name="target" value="accountpage">
+                                            <input type="submit" value="Konto" class="dropdown-item" style="border: none; background: none; text-decoration: none;">
+                                        </form>
                                     </c:when>
                                 </c:choose>
-                                <a class="dropdown-item" href="#">Log ud</a>
+                                <form name="index" action="FrontController" method="POST">
+                                    <input type="hidden" name="target" value="logout">
+                                    <input type="submit" value="Log ud" class="dropdown-item" style="border: none; background: none; text-decoration: none;">
+                                </form>
                             </div>
                         </li>
                     </c:when>
@@ -63,4 +75,4 @@
             </ul>
         </div>
     </nav>
-        <div class="container-fluid">
+        <div class="container-fluid" style="margin-top: 6%; margin-bottom: 5%">
