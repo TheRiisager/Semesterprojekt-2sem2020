@@ -16,9 +16,19 @@ public class SaveDesign extends Command {
         int width = Integer.parseInt(request.getParameter("width"));
         Order order = new Order(width, length);
 
+
         HttpSession session = request.getSession();
 
+        if( session.getAttribute("user") == null ){
+            request.setAttribute("nousererror" , "Du ser ikke ud til at være logget ind!");
+            request.setAttribute("nousererror2" , "Login eller opret en bruger for at bruge designeren.");
+            return "index";
+        }
+
         User user = (User) session.getAttribute("user");
+
+
+
 
         order.setUserID(user.getId());
 

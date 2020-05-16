@@ -29,7 +29,7 @@
                     <div style="border-radius: 10px;
                         <c:choose>
                             <c:when test="${order.getStatus() == 0}">
-                                background-color: salmon;
+                                background-color: #cc1346;
                             </c:when>
 
                             <c:when test="${order.getStatus() == 1}">
