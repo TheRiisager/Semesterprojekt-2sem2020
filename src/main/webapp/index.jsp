@@ -7,8 +7,11 @@
 --%>
 <jsp:include page="WEB-INF/header.jsp"/>
 
-<h2 style="color: #cc5274; text-align: center;">${nousererror}</h2>
-<p style="color: #cc5274; text-align: center;">${nousererror2}</p>
+<div>
+    <h2 style="color: #cc5274; text-align: center;">${nousererror}</h2>
+    <p style="color: #cc5274; text-align: center;">${nousererror2}</p>
+</div>
+
 <div class="row container w-50" style="margin: 0 auto; color: white;">
     <div class="col w-auto" style="background-color: #014687; padding: 15px;">
         <h1>Login</h1>

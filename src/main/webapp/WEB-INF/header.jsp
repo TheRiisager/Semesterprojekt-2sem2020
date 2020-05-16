@@ -9,6 +9,8 @@
         <style>
             body {
                 background-color: white;
+                background-image: url("img/bg.jpg");
+                background-size: cover;
 
             }
 
@@ -75,4 +77,4 @@
             </ul>
         </div>
     </nav>
-        <div class="container-fluid" style="margin-top: 6%; margin-bottom: 5%">
+        <div class="container-fluid" style="margin-top: 6%; margin-bottom: 5%;">
