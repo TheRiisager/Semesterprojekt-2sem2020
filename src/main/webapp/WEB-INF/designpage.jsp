@@ -3,18 +3,22 @@
 
 <jsp:include page="header.jsp"/>
 
+
+
 <form name="savedesign" action="FrontController" method="POST" oninput="x.value=Math.round( ( parseInt(a.value) / 100 ) * ( parseInt(b.value) / 100 ) )">
 
     <input type="hidden" name="target" value="savedesign">
     <div class="form-group">
-        <select name="width" id="a" class="form-control">
+        <select name="width" id="a" class="form-control col-md-3">
             <c:forEach items="${widthlengthoptions}" var="width">
                 <option value="${width}">
                         ${width}cm
                 </option>
             </c:forEach>
         </select>
-        <select name="length" id="b" class="form-control">
+    </div>
+    <div class="form-group">
+        <select name="length" id="b" class="form-control col-md-3">
             <c:forEach items="${widthlengthoptions}" var="length">
                 <option value="${length}">
                         ${length}cm
@@ -26,6 +30,9 @@
 
     <input type="submit" value="Gem design">
 </form>
+
+
+
 
 
 

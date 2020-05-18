@@ -56,8 +56,10 @@ public class OrderMapper {
                 int width = rs.getInt("Width");
                 int status = rs.getInt("status");
                 String componetString = rs.getString("componentList");
-
-                orderList.add(new Order(orderID, width, length, componetString, status));
+                int userID = rs.getInt("userID");
+                Order order = new Order(orderID, width, length, componetString, status);
+                order.setUserID(userID);
+                orderList.add(order);
             }
 
         }catch ( SQLException e ){

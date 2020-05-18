@@ -6,7 +6,7 @@ INSERT INTO Material VALUES
 (null, "Spær","Sternbrædt", 99.70, 600, 3, 13),
 (null, "Spær","Sternbrædt1", 199.70, 300, 3, 13),
 (null, "Spær","Sternbrædt2", 299.70, 900, 3, 13),
-(null, "Tagplader", "Plastmo	Ecolite	blåtonet", 250, 600, 109, 0),
+(null, "Tagplader", "Plastmo	Ecolite	blåtonet", 250, 90, 90, 0),
 (null, "Vandbrædt", "Brædt trykimp.", 41.79, 540, 2, 10),
 (null, "Misc", "Bundskruer", 409, 0, 0, 0),
 (null, "Misc", "Hulbånd", 209, 0, 0, 0),

@@ -19,6 +19,9 @@ public class ListCreator {
         componentList.add( Calculator.calculateParts( order, Calculator.findMaterial("Rem", order ) ) );
         System.out.println("Rem added");
 
+        //kryds
+        componentList.add( Calculator.calculateParts( order, Calculator.findMaterial("Kryds", order) ) );
+
         System.out.println(componentList.get(0).getKey());
 
         return componentList;

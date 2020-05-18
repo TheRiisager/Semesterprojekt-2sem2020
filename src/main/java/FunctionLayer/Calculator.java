@@ -29,6 +29,10 @@ public class Calculator {
             length = order.getCarportLength() - ( MODULESIZE * 2 );
         }
 
+        if ( material.getType().equals( "Kryds" )){
+            return new Pair ( material , 1);
+        }
+
         if(spacing == -1) {
             System.out.println("Type ikke genkendt, returnerer null");
             return null;
@@ -97,6 +101,14 @@ public class Calculator {
                 suitableMat = m;
             }
             System.out.println("found stolpe " + suitableMat.getName() );
+            return suitableMat;
+        }
+
+        if ( type.equals( "Kryds" )){
+
+            for ( Material m : materialList) {
+                suitableMat = m;
+            }
             return suitableMat;
         }
 
