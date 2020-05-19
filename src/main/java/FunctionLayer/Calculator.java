@@ -74,7 +74,6 @@ public class Calculator {
             for ( Material m : materialList ) {
                  if ( m.getLength() >= order.getCarportWidth() && m.getLength() < suitableMat.getLength() ) {
                      suitableMat = m;
-                     System.out.println("suitablemat set to " + m.getName());
                 }
             }
             System.out.println("found " + suitableMat.getType() + " " + suitableMat.getName());
@@ -91,7 +90,6 @@ public class Calculator {
                     suitableMat = m;
                 }
             }
-            System.out.println("found " + suitableMat.getType() + " " + suitableMat.getName());
             return suitableMat;
         }
 
@@ -100,7 +98,6 @@ public class Calculator {
             for ( Material m : materialList ) {
                 suitableMat = m;
             }
-            System.out.println("found stolpe " + suitableMat.getName() );
             return suitableMat;
         }
 
@@ -112,7 +109,6 @@ public class Calculator {
             return suitableMat;
         }
 
-        System.out.println("No suitable material found. Maybe the type doesn't exist?");
         return null;
     }
 

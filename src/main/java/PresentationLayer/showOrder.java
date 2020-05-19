@@ -25,7 +25,10 @@ public class showOrder extends Command {
         }
         HttpSession session = request.getSession();
 
+        System.out.println("Status is: " + order.getStatus());
+
         session.setAttribute( "oid" , oidString );
+        session.setAttribute("status", order.getStatus() );
         session.setAttribute( "width" , order.getCarportWidth() );
         session.setAttribute( "length" , order.getCarportLength() );
         session.setAttribute( "componentList", order.getComponentList() );

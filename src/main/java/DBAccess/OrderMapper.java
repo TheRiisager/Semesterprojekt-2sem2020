@@ -108,14 +108,17 @@ public class OrderMapper {
 
     //TODO: Implement status and componentList
     public static void updateOrder ( int orderID, int length, int width, int status ) {
+
+        System.out.println("function UpdateOrder received status: " + status);
         try {
             Connection con = Connector.connection();
             String SQL = "UPDATE Orders SET Length=?, Width=?, Status=? WHERE orderID = ?;";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setInt( 1, length );
             ps.setInt( 2, width );
-            ps.setInt( 3, orderID );
-            ps.setInt( 4, status );
+            ps.setInt( 3, status );
+            ps.setInt( 4, orderID );
+
 
             ps.executeUpdate();
         }catch ( SQLException e ){

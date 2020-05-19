@@ -12,6 +12,7 @@
     <title>Title</title>
 </head>
 <body>
+    <p style="color: #cc1346">${statuserror}</p>
     <p>
        ID: ${sessionScope.oid}
     </p>
@@ -24,6 +25,7 @@
         <p>Bredde:</p>
         <input type="text" name="width" value="${sessionScope.width}">
         <br>
+        <input type="number" name="status" value="${sessionScope.status}">
         <input type="submit" value="Opdater værdier">
     </form>
 

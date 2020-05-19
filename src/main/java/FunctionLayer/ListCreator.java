@@ -9,15 +9,12 @@ public class ListCreator {
 
         //spær
         componentList.add( Calculator.calculateParts( order, Calculator.findMaterial("Spær", order ) ) );
-        System.out.println("spær added");
 
         //stolper
         componentList.add( Calculator.calculateParts( order, Calculator.findMaterial("Stolpe", order ) ) );
-        System.out.println("Stolpe added");
 
         //remme
         componentList.add( Calculator.calculateParts( order, Calculator.findMaterial("Rem", order ) ) );
-        System.out.println("Rem added");
 
         //kryds
         componentList.add( Calculator.calculateParts( order, Calculator.findMaterial("Kryds", order) ) );

@@ -12,13 +12,18 @@ public class UpdateOrder extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
+        if(Integer.parseInt( request.getParameter("status") ) > 2) {
+            request.setAttribute("statuserror", "Status skal være mellem 0 og 2");
+            return "salesorderview";
+        }
+
         System.out.println("update order initiated");
 
         int length = Integer.parseInt( request.getParameter("length" ) );
 
         int width = Integer.parseInt( request.getParameter("width" ) );
 
-        int status = Integer.parseInt("status");
+        int status = Integer.parseInt( request.getParameter("status") );
 
         System.out.println("parsing dimensions complete");
 
