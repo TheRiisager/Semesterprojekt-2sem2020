@@ -37,7 +37,6 @@ public class Drawing {
 
             float x2 = 0;
             float y2 = 0;
-            System.out.println(remY);
 
             if (p.getKey().getType().equals("Rem")) {
                 y = Calculator.MODULESIZE;
@@ -47,7 +46,6 @@ public class Drawing {
                 offset = mat.getWidth() / 2;
                 remWidth = mat.getWidth();
                 remY = y + offset;
-                System.out.println(remY);
 
 
                 while (y <= length) {
