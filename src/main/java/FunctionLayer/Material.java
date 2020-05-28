@@ -70,6 +70,8 @@ public class Material implements Comparable<Material>{
         return name + " (" + width + "x" + height + ")";
     }
 
+
+    //sorts by length, from longest to shortest.
     @Override
     public int compareTo(Material material) {
         if(this.length == material.length) {
